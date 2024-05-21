@@ -1,8 +1,8 @@
-"use client"
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { Button } from "@/components/ui/button";
+'use client';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { Button } from '@/components/ui/button';
 import {
   FormControl,
   FormDescription,
@@ -10,9 +10,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from '@/components/ui/form';
 // import { Input } from "@/components/ui/input";
-
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
@@ -22,13 +21,11 @@ export function ProfileForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      username: '',
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
-  };
+  const onSubmit = (values: z.infer<typeof formSchema>) => {};
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -42,9 +39,7 @@ export function ProfileForm() {
               {/* <Input placeholder="shadcn" {...field} /> */}
               Contact us
             </FormControl>
-            <FormDescription>
-              This is your public display name.
-            </FormDescription>
+            <FormDescription>This is your public display name.</FormDescription>
             <FormMessage>
               {form.formState.errors.username && (
                 <span>{form.formState.errors.username.message}</span>

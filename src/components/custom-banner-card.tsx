@@ -22,7 +22,7 @@ export default function CustomBannerCard({
         <Image
           className="object-cover absolute z-2 top-0 left-0 w-full h-full inset-0 bg-black opacity-80"
           // src={banner2}
-          src={''}
+          src={img ?? ''}
           alt={altImg}
           width={1600}
           height={900}

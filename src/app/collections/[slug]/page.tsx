@@ -15,7 +15,7 @@ export default async function Page({
   if (!categories.length) {
     return notFound();
   }
-  console.log(categories);
+
   return (
     <>
       <CollectionsBanner slug={params.slug} />

@@ -1,22 +1,17 @@
-import Crousel from '@/components/custom-crousel';
-import CategoryCard from '@/components/category-card';
 import About from '@/components/about';
 import Title from '@/components/title';
 import Accordian from '@/components/accordian';
-import BannerCrousel from '@/components/banner-crousel';
 import CustomtestimonialCrousel from '@/components/custom-testimonial-crousel';
-import CustomButton from '@/components/custombutton';
-import Footer from '@/components/footer';
-import { Button } from '@/components/ui/button';
 import Map from '@/components/map';
-import { getAllPostsMeta } from '@/lib/mdx';
 import CategorySection from '@/components/home/category-section';
+import CustomCrousel from '@/components/custom-crousel';
+import BannerCrousel from '@/components/banner-crousel';
 
 export default function Home() {
   return (
     <>
       <div className="flex  justify-center  ">
-        <Crousel />
+        <CustomCrousel />
       </div>
 
       <div>

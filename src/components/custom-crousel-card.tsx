@@ -12,7 +12,7 @@ export default function CustomCrouselCard({ img, altImg }: CrouselProps) {
       <div className="relative">
         <Image
           className="object-cover absolute top-0 left-0 w-full h-[100vh]"
-          src={''}
+          src={img ?? ''}
           alt={altImg}
           width={1600}
           height={900}

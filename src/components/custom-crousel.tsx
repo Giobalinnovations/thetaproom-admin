@@ -15,22 +15,22 @@ export default function CustomCrousel() {
           <CarouselItem className="relative h-[100vh]">
             <CustomCrouselCard
               // title={"First Banner"}
-              img={'/banner.webp'}
+              img="/images/banner/banner1.webp"
               altImg="FirstBannerimage"
             />
           </CarouselItem>
           <CarouselItem className="relative h-[100vh]">
             <CustomCrouselCard
               // title={"Second Banner"}
-              img={'/banner.webp'}
-              altImg="FirstBannerimage"
+              img="/images/banner/banner1.webp"
+              altImg="second Bannerimage"
             />
           </CarouselItem>
           <CarouselItem className="relative h-[100vh]">
             <CustomCrouselCard
               // title={"Third Banner"}
-              img={'/banner.webp'}
-              altImg="FirstBannerimage"
+              img="/images/banner/banner1.webp"
+              altImg="thirdBannerimage"
             />
           </CarouselItem>
         </CarouselContent>

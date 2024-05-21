@@ -33,6 +33,6 @@ export const getAllPostsMeta = async (rootDirectory: string) => {
     const { meta } = await getPostBySlug(file, rootDirectory);
     posts.push(meta);
   }
-  console.log(posts);
+
   return posts;
 };
