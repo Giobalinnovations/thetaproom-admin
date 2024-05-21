@@ -8,6 +8,7 @@ export default function CollectionsBanner({ slug }: { slug: string }) {
           src="/images/bed-banner.webp"
           width={1900}
           height={500}
+          loading="lazy"
           alt="Banner Image"
         />
       </div>
