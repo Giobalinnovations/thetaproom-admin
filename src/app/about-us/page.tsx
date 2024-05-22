@@ -19,43 +19,42 @@ export default function Page() {
         <div className="py-2">
           <h3 className="py-2 font-bold">Good Furniture Supplier</h3>
           <p>
-            Coast 2 Coast furniture is a supplier who serving the fine furniture
-            market with a good design collection that caters to a variety of
-            tastes and architectural styles of modern time.we provide
-            International designs rich in culture and some of the most
-            exceptional interior living spaces a home has to offer.we provide
-            the Design which is perfect in modern world with good look and feel.
+            Coast 2 Coast Furniture is a supplier serving the fine furniture
+            market with a well-designed collection that caters to a variety of
+            tastes and architectural styles of modern times. We provide
+            international designs rich in culture, creating some of the most
+            exceptional interior living spaces a home can offer. Our designs are
+            perfect for the modern world, offering both a good look and feel.
           </p>
         </div>
         <div className="py-2">
           <h3 className="py-2 font-bold">Good Design and Fine Construction</h3>
           <p>
-            We provide the good design and constrution of the product which is
-            making used by very high quilty of woods. we Paying particular
-            attention to attractiveness of appearance of product, best quality
-            of raw materials and durability of construction of the product.
+            We provide well-designed and constructed products made from the
+            highest quality woods. We pay particular attention to the
+            attractiveness of the product's appearance, the best quality raw
+            materials, and the durability of the product's construction.
           </p>
         </div>
         <div className="py-2">
           <h3 className="py-2 font-bold">A Relationship to be Valued</h3>
           <p>
-            Living Rooms,Bedroom,dining and Occasional tables set furniture –
-            Coast 2 Coast FURNITURE is your answer for one-of-a-kind designs in
-            a variety of materials. Our designers works vigilantly to keep pace
-            and stay current with fresh styles and trendy pieces. We help you
-            portray exclusivity and architectural richness in your showroom all
-            year round.
+            Living rooms, bedrooms, dining, and occasional table sets - Coast 2
+            Coast Furniture is your answer for one-of-a-kind designs in a
+            variety of materials. Our designers work vigilantly to stay current
+            with fresh styles and trendy pieces. We help you portray exclusivity
+            and architectural richness in your showroom all year round.
           </p>
         </div>
         <div className="py-2">
           <h3 className="py-2 font-bold">Dependable Service</h3>
           <p>
-            For Coast 2 Coast furniture&apos;s retail partner, we offer
-            extensive inventory selection and quick turnaround. At any given
-            time, we carries 90% of its full stock on hand. This enables us to
-            deliver high quantities – on demand, any time. Impress each new
-            customer with a showroom that has the grace, appeal and beauty that
-            can only come from timeless products with exceptional craftsmanship
+            For Coast 2 Coast Furniture's retail partners, we offer an extensive
+            inventory selection and quick turnaround. At any given time, we
+            carry 90% of our full stock on hand. This enables us to deliver high
+            quantities on demand, anytime. Impress each new customer with a
+            showroom that has the grace, appeal, and beauty that can only come
+            from timeless products with exceptional craftsmanship.
           </p>
         </div>
       </div>
