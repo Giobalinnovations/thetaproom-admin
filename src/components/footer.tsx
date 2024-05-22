@@ -1,5 +1,5 @@
-import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
-import Link from 'next/link';
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -9,36 +9,37 @@ export default function Footer() {
           <div>
             <h1 className="text-2xl py-3">About Us</h1>
             <p className="text-base">
-              Discover a wide selection of premium furniture at our stores in
-              Ottawa, Winnipeg, Vancouver, Calgary, Mississauga, Edmonton,
-              Montreal, and Fredericton. We offer quality pieces to enhance your
-              home&apos;s ambiance, ensuring a personalized shopping experience
-              tailored to your style and preferences.
+              Coast 2 Coast Furniture is your premier destination for exquisite
+              furniture, offering one-of-a-kind designs in a variety of
+              materials. With a commitment to quality craftsmanship and
+              personalized service, we strive to enhance your living spaces with
+              timeless elegance. Visit us today and discover the perfect pieces
+              to elevate your home.
             </p>
           </div>
           <div>
             <p className="text-xl  py-3">Quick Links</p>
             <ul>
               <li>
-                <Link href={'#'}>About</Link>
+                <Link href={"#"}>About</Link>
               </li>
               <li>
-                <Link href={'#'}>Contact</Link>
+                <Link href={"#"}>Contact</Link>
               </li>
               <li>
-                <Link href={'#'}>Privacy Policy</Link>
+                <Link href={"#"}>Privacy Policy</Link>
               </li>
               <li>
-                <Link href={'#'}>Terms & Conditions</Link>
+                <Link href={"#"}>Terms & Conditions</Link>
               </li>
               <li>
-                <Link href={'#'}>Frequently Asked Questions</Link>
+                <Link href={"#"}>Frequently Asked Questions</Link>
               </li>
               <li>
-                <Link href={'#'}>Terms of Service</Link>
+                <Link href={"#"}>Terms of Service</Link>
               </li>
               <li>
-                <Link href={'#'}>Refund policy</Link>
+                <Link href={"#"}>Refund policy</Link>
               </li>
             </ul>
           </div>
@@ -47,22 +48,22 @@ export default function Footer() {
             <p className="text-xl py-3">Social Media</p>
             <ul className="flex gap-4">
               <li>
-                <Link href={'#'}>
+                <Link href={"#"}>
                   <Facebook />
                 </Link>
               </li>
               <li>
-                <Link href={'#'}>
+                <Link href={"#"}>
                   <Instagram />
                 </Link>
               </li>
               <li>
-                <Link href={'#'}>
+                <Link href={"#"}>
                   <Youtube />
                 </Link>
               </li>
               <li>
-                <Link href={'#'}>
+                <Link href={"#"}>
                   <Linkedin />
                 </Link>
               </li>
@@ -70,8 +71,8 @@ export default function Footer() {
           </div>
         </div>
         <div className="text-center py-8 text-white">
-          Copyright © Coast2Coast Furniture. All right reserved |{' '}
-          <Link className="underline" href={'#'}>
+          Copyright © Coast2Coast Furniture. All right reserved |{" "}
+          <Link className="underline" href={"#"}>
             Terms of Service
           </Link>
         </div>
