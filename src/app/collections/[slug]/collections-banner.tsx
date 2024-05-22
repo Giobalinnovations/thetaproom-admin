@@ -10,6 +10,7 @@ export default function CollectionsBanner({ slug }: { slug: string }) {
           height={500}
           loading="lazy"
           alt="Banner Image"
+          className="object-cover"
         />
       </div>
       <div className=" container py-12">
