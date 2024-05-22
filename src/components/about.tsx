@@ -4,7 +4,7 @@ export default function About() {
       <div className=" flex justify-center container bg-white pt-24">
         <div className=" flex flex-col gap-3 text-center ">
           <h2 className="text-black font-bold text-2xl">
-            Delivering the Service You Deserve: Coast to Coast's Commitment to
+            Delivering the Service You Deserve: Coast to Coast&apos;s Commitment to
             Excellence
           </h2>
           <p>

@@ -32,8 +32,8 @@ export default function Page() {
           <p>
             We provide well-designed and constructed products made from the
             highest quality woods. We pay particular attention to the
-            attractiveness of the product's appearance, the best quality raw
-            materials, and the durability of the product's construction.
+            attractiveness of the product&apos;s appearance, the best quality raw
+            materials, and the durability of the product&apos;s construction.
           </p>
         </div>
         <div className="py-2">
@@ -49,7 +49,7 @@ export default function Page() {
         <div className="py-2">
           <h3 className="py-2 font-bold">Dependable Service</h3>
           <p>
-            For Coast 2 Coast Furniture's retail partners, we offer an extensive
+            For Coast 2 Coast Furniture&apos;s retail partners, we offer an extensive
             inventory selection and quick turnaround. At any given time, we
             carry 90% of our full stock on hand. This enables us to deliver high
             quantities on demand, anytime. Impress each new customer with a
