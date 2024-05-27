@@ -11,7 +11,7 @@ import CollectionCard from "../../collectionscard";
 export default function RelatedItem() {
   return (
     <div>
-      <Carousel className="w-full max-w-full">
+      <Carousel  orientation="horizontal">
         <CarouselContent className="-ml-1">
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem className="pl-1 md:basis-1/2 lg:basis-1/3" key={index}>
@@ -32,8 +32,8 @@ export default function RelatedItem() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious variant="default" className="left-16"  />
+        <CarouselNext variant="default"  className="right-16"/>
       </Carousel>
     </div>
   );

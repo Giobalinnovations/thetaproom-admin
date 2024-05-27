@@ -1,4 +1,6 @@
+"use client"
 import Image from 'next/image';
+import CustomCarousel from './custom-carousel';
 
 type ProductDescriptionProps = {
   img: string;
@@ -6,6 +8,7 @@ type ProductDescriptionProps = {
   discountedprice: number;
   price: number;
   content: any;
+  images: any
 };
 
 export default function ProductDescription({
@@ -14,18 +17,14 @@ export default function ProductDescription({
   discountedprice,
   price,
   content,
+  images
 }: ProductDescriptionProps) {
   return (
     <>
       <div className="flex flex-col sm:flex-row gap-8 py-16 container  mx-w-full [&_h1]:text-red-500">
-        <div className=" sm:h-8 sm:w-2/3">
-          <Image
-            className="object-cover"
-            src={img ?? ''}
-            alt="image"
-            width={900}
-            height={500}
-          />
+        <div className="  sm:w-2/3">
+       
+          <CustomCarousel images={images}/>
         </div>
         <div className="sm:w-1/3 flex flex-col gap-4">
           <div className="font-bold text-xl">{producttitle}</div>

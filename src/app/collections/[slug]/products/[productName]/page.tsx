@@ -19,11 +19,11 @@ const getPageContent = async (slug: string) => {
 export default async function Page({
   params,
 }: {
-  params: { productName: string; slug: string };
+  params: { productName: string; slug: string };  
 }) {
   const { meta, content }: any = await getPageContent(params.productName);
   if (!content) notFound();
-  console.log(meta);
+
   return (
     <>
       <div className="py-4 container ">
@@ -38,10 +38,11 @@ export default async function Page({
             discountedprice={989}
             price={876}
             content={content ?? ''}
+            images={meta.images}
           />
         </div>
-        <div className="text-xl text-center font-bold pb-2">Related Link</div>
-        <RelatedItem />
+        {/* <div className="text-xl text-center max-sm:mt-[200px] font-bold pb-2">Related Link</div> */}
+        {/* <RelatedItem /> */}
       </div>
     </>
   );
