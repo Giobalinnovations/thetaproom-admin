@@ -41,8 +41,8 @@ export default async function Page({
             images={meta.images}
           />
         </div>
-        <div className="text-xl text-center max-sm:mt-[200px] font-bold pb-2">Related Link</div>
-        <RelatedItem />
+        {/* <div className="text-xl text-center max-sm:mt-[200px] font-bold pb-2">Related Link</div> */}
+        {/* <RelatedItem /> */}
       </div>
     </>
   );
