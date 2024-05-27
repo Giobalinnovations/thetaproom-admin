@@ -11,6 +11,8 @@ import {
 import Logo from './logo';
 import { Menu } from 'lucide-react';
 
+import Link from 'next/link';
+import SideNav from './side-nav';
 export default function MenuToggler({ children }: PropsWithChildren) {
   return (
     <Sheet>
@@ -26,6 +28,7 @@ export default function MenuToggler({ children }: PropsWithChildren) {
           </SheetTitle>
           <SheetDescription>{children}</SheetDescription>
         </SheetHeader>
+        <SideNav />
       </SheetContent>
     </Sheet>
   );

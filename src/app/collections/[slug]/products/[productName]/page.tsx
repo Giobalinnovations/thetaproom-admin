@@ -23,7 +23,7 @@ export default async function Page({
 }) {
   const { meta, content }: any = await getPageContent(params.productName);
   if (!content) notFound();
-
+  console.log(meta);
   return (
     <>
       <div className="py-4 container ">

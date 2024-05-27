@@ -28,6 +28,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
+    "react-pro-sidebar": "^1.1.0",
     "rehype": "^13.0.1",
     "remark-gfm": "^4.0.0",
     "sharp": "^0.33.1",
