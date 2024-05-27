@@ -31,8 +31,8 @@ export default function CollectionCard({
         />
         <div className="py-4 mx-3">{producttitle}</div>
         <div className="text-[#dc5454] pb-4">
-          {discountedprice ? discountedprice : ''}
-          <span className={` text-[#6E757C] line-through`}>{price ?? ''}</span>
+          {discountedprice ? discountedprice : ''} 
+          <span className={` text-[#6E757C] line-through px-2`}>{price ?? ''}</span>
         </div>
       </Card>
     </Link>

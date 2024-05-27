@@ -36,8 +36,8 @@ export default function CustomtestimonialCrousel() {
             />
           </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious variant="default" className="left-0"/>
+        <CarouselNext variant="default" className="right-0"/>
       </Carousel>
     </>
   );
