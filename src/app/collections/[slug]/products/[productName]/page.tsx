@@ -31,7 +31,7 @@ export default async function Page({
           <Link href={'/'}>Home </Link>/ {params.slug} / {params.productName}
         </div>
 
-        <div className="h-[100vh]">
+        <div className="">
           <ProductDescription
             img={meta.img ?? ''}
             producttitle={meta.productName ?? ''}
