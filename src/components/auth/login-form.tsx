@@ -79,7 +79,7 @@ export default function LoginForm() {
                   <FormLabel>Password</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="Email"
+                      placeholder="Password"
                       {...field}
                       disabled={isPending}
                     />
@@ -91,7 +91,9 @@ export default function LoginForm() {
           </div>
           <FormError message={error} />
           <FormSuccess message={success} />
-          <Button disabled={isPending}>Login</Button>
+          <div className="w-full flex flex-col">
+            <Button disabled={isPending}>Login</Button>
+          </div>
         </form>
       </Form>
     </CardWrapper>

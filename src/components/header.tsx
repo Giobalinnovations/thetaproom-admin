@@ -31,8 +31,9 @@ export default function Header() {
         <nav className="hidden lg:flex lg:gap-x-16">
           <NavigationMenu1 />
         </nav>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <ButtonAsLink href='/contact-us' title="Contact" />
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-3">
+          <ButtonAsLink href="/contact-us" title="Contact" />
+          <ButtonAsLink href="/auth/login" title="Admin" />
         </div>
       </nav>
     </header>
