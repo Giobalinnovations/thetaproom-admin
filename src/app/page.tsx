@@ -6,10 +6,13 @@ import Map from '@/components/map';
 import CategorySection from '@/components/home/category-section';
 import CustomCrousel from '@/components/custom-crousel';
 import BannerCrousel from '@/components/banner-crousel';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 
 export default function Home() {
   return (
     <>
+      <Header />
       <div className="flex  justify-center  ">
         <CustomCrousel />
       </div>
@@ -38,6 +41,7 @@ export default function Home() {
       </div>
       {/* Map Section */}
       <Map />
+      <Footer />
     </>
   );
 }

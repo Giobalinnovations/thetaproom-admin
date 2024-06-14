@@ -24,7 +24,7 @@ export default function CardWrapper({
   showSocials,
 }: CardWrapperProps) {
   return (
-    <Card className="w-[400px] shadow-md">
+    <Card className="w-[400px] shadow-lg">
       <CardHeader>
         <Header label="Admin Login" />
       </CardHeader>
