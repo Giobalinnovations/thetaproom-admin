@@ -13,6 +13,7 @@ import {
   Menu,
   Package,
   Package2,
+  Plus,
   Search,
   ShoppingCart,
   Users,
@@ -51,7 +52,7 @@ export default async function DashboardHeader() {
               className="flex items-center gap-2 text-lg font-semibold"
             >
               <Package2 className="h-6 w-6" />
-              <span className="sr-only">TravelBi</span>
+              <span className="sr-only">Coast to coast furnishing</span>
             </Link>
             <Link
               href="/dashboard"
@@ -61,54 +62,19 @@ export default async function DashboardHeader() {
               Dashboard
             </Link>
             <Link
-              href="/dashboard/continents/add"
+              href="/dashboard/category/add"
               className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
             >
-              <Globe className="h-5 w-5" />
+              <Plus className="h-4 w-4" />
               Create Product Category
               <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full" />
             </Link>
             <Link
-              href="/dashboard/country/add"
+              href="/dashboard/products/add"
               className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
             >
-              <Flag className="h-5 w-5" />
-              Add Country
-            </Link>
-            <Link
-              href="/dashboard/tours/add"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
-              <Footprints className="h-5 w-5" />
-              Add Tours
-            </Link>
-            <Link
-              href="/dashboard/travels-guide/add"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
-              <Backpack className="h-5 w-5" />
-              Add Travels Guide
-            </Link>
-            <Link
-              href="/dashboard/places-to-go/add"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
-              <Castle className="h-5 w-5" />
-              Add Places To Go
-            </Link>
-            <Link
-              href="/dashboard/accommodations/add"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
-              <Hotel className="h-5 w-5" />
-              Add Accommodations
-            </Link>
-            <Link
-              href="/dashboard/things-to-do/add"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
-              <Activity className="h-5 w-5" />
-              Add Things To Do
+              <Plus className="h-4 w-4" />
+              Add Products
             </Link>
           </nav>
         </SheetContent>

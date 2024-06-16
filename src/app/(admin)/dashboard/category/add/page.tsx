@@ -1,9 +1,9 @@
-import ContinentsForm from './continents-form';
+import CategoryForm from './category-form';
 
 export default function AddContinents() {
   return (
     <div>
-      <ContinentsForm />
+      <CategoryForm />
     </div>
   );
 }

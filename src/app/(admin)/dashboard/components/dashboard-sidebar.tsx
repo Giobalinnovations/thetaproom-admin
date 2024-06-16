@@ -1,18 +1,5 @@
 import Link from 'next/link';
-import {
-  Activity,
-  Backpack,
-  Bell,
-  Castle,
-  Flag,
-  Footprints,
-  Globe,
-  Home,
-  Hotel,
-  Notebook,
-  Package2,
-  Plus,
-} from 'lucide-react';
+import { Bell, Home, Package2, Plus } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -46,10 +33,10 @@ export default function DashboardSidebar() {
               Dashboard
             </Link>
             <Link
-              href="/dashboard/continents/add"
+              href="/dashboard/category/add"
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
             >
-              <Globe className="h-4 w-4" />
+              <Plus className="h-4 w-4" />
               Create Product Category
               <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full" />
             </Link>

@@ -1,10 +1,12 @@
 'use client';
-import useQueryGet from '@/hooks/useQuery';
-import CategoryCardWithoutImg from '../category-card-without-img';
-import apiEndpoint from '@/services/apiEndpoint';
-import { CategoryProps } from '../navigation-list-category';
 
-export default function CategorySection() {
+import useQueryGet from '@/hooks/useQuery';
+import apiEndpoint from '@/services/apiEndpoint';
+import { ListItem } from './navigation';
+
+export type CategoryProps = { name: string; _id: string };
+
+export default function NavigationListCategory() {
   const { data, isPending, isError, error, isSuccess } = useQueryGet({
     apiEndpointUrl: apiEndpoint.CATEGORY,
     queryKey: 'getAllCategory',
@@ -22,10 +24,15 @@ export default function CategorySection() {
     return (
       <>
         {category.length > 0
-          ? category.map((category: CategoryProps) => (
-              <CategoryCardWithoutImg key={category._id} category={category} />
+          ? category.map((item: CategoryProps) => (
+              <ListItem
+                key={item._id}
+                title={item.name}
+                href={`/collections/${item.name}`}
+                className="capitalize"
+              ></ListItem>
             ))
-          : 'no category found'}
+          : null}
       </>
     );
   }

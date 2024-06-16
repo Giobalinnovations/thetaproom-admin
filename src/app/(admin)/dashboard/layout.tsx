@@ -1,8 +1,8 @@
-import ReactQueryProvider from '@/components/ReactQueryProvider';
 import DashboardSidebar from './components/dashboard-sidebar';
 import DashboardHeader from './components/dashboard-header';
 import { Toaster } from '@/components/ui/toaster';
 import { Metadata } from 'next';
+import ReactQueryProvider from '@/components/ReactQueryProvider';
 
 export const metadata: Metadata = {
   title: 'Dashboard',
@@ -16,16 +16,16 @@ export default function RootLayout({
 }>) {
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <ReactQueryProvider>
-        <DashboardSidebar />
-        <div className="flex flex-col">
-          <DashboardHeader />
-          <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-            {children}
-          </main>
-        </div>
-        <Toaster />
-      </ReactQueryProvider>
+      {/* <ReactQueryProvider>
+        <DashboardSidebar /> */}
+      <div className="flex flex-col">
+        <DashboardHeader />
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+          {children}
+        </main>
+      </div>
+      {/* <Toaster />
+      </ReactQueryProvider> */}
     </div>
   );
 }
