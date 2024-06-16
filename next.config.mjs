@@ -6,6 +6,14 @@ import { rehype } from 'rehype';
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   // trailingSlash: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'https://coaststorage.s3.us-east-2.amazonaws.com',
+      },
+    ],
+  },
 };
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
