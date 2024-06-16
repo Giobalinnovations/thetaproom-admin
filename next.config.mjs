@@ -5,7 +5,7 @@ import { rehype } from 'rehype';
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  trailingSlash: true,
+  // trailingSlash: true,
 };
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
