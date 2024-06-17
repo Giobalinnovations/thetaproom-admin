@@ -11,14 +11,17 @@ export async function getUserByEmailAndPassword({
   password: string;
 }): Promise<User | undefined> {
   try {
-    const user = await fetch('http://localhost:8090/api/v1/admins/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    }).then(res => res.json());
-    console.log(user);
+    const user = await fetch(
+      'https://mcnqbm2cdk.us-east-1.awsapprunner.com/api/v1/admins/login',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      }
+    ).then(res => res.json());
+
     return user;
   } catch (error) {
     console.log(error);
