@@ -30,10 +30,8 @@ import TipTap from '@/components/ui/tip-tap';
 import CategoryList from '../../components/category-list';
 
 const formSchema = z.object({
-  category: z.string({
-    required_error: 'Please select an destination id to display.',
-  }),
-  name: z.string().min(2, {
+  category: z.string().min(1, { message: `category can't be empty` }),
+  name: z.string().toLowerCase().min(2, {
     message: 'Destinations Name must be at least 2 characters.',
   }),
 
@@ -45,9 +43,12 @@ const formSchema = z.object({
     .optional()
     .or(z.literal('')),
 
-  slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
-    message: 'slug is not valid',
-  }),
+  slug: z
+    .string()
+    .toLowerCase()
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
+      message: 'slug is not valid',
+    }),
   imageCover: z
     .array(z.any())
     .nonempty({ message: 'Images cover is required' }),
@@ -114,7 +115,8 @@ export default function AddProductsForm() {
                 <FormLabel>Product Category</FormLabel>
                 <Select
                   onValueChange={field.onChange}
-                  defaultValue={field.value}
+                  value={field.value}
+                  defaultValue=""
                 >
                   <FormControl>
                     <SelectTrigger>
@@ -137,7 +139,13 @@ export default function AddProductsForm() {
               <FormItem>
                 <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="product name..." {...field} />
+                  <Input
+                    placeholder="product name..."
+                    {...field}
+                    onChange={event =>
+                      field.onChange(event.target.value.toLowerCase())
+                    }
+                  />
                 </FormControl>
 
                 <FormMessage />
@@ -166,7 +174,13 @@ export default function AddProductsForm() {
               <FormItem>
                 <FormLabel>Slug</FormLabel>
                 <FormControl>
-                  <Input placeholder="slug..." {...field} />
+                  <Input
+                    placeholder="slug..."
+                    {...field}
+                    onChange={event =>
+                      field.onChange(event.target.value.toLowerCase())
+                    }
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
