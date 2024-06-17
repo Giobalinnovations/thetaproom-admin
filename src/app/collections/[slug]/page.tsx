@@ -1,37 +1,79 @@
-import { getAllPostsMeta, rootDirectoryPosts } from '@/lib/mdx';
+'use client';
+
 import CollectionsBanner from './collections-banner';
 import CollectionCard from './collectionscard';
 import { notFound } from 'next/navigation';
+import apiEndpoint from '@/services/apiEndpoint';
+import useQueryGet from '@/hooks/useQuery';
 
-export default async function Page({
+export type ProductProps = {
+  _id: string;
+  name: string;
+  slug: string;
+  category: string;
+  description: string;
+  imageCover: string;
+  images: string[];
+};
+
+export type CategoryProps = {
+  _id: string;
+  name: string;
+  product: ProductProps[];
+};
+
+export default function Page({
   params,
 }: {
   params: {
     slug: string;
   };
 }) {
-  const posts = await getAllPostsMeta(rootDirectoryPosts);
-  const categories = posts.filter((post: any) => post.category === params.slug);
-  if (!categories.length) {
-    return notFound();
+  const { data, isPending, isError, error, isSuccess } = useQueryGet({
+    apiEndpointUrl: `${apiEndpoint.CATEGORY}/${params.slug}`,
+    queryKey: 'getAllCategoryById',
+  });
+
+  if (isPending) {
+    return <div>Loading</div>;
   }
 
-  return (
-    <>
-      <CollectionsBanner slug={params.slug} />
-      <div className="container py-8 grid gap-8 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
-        {categories.map((category: any) => (
-          <CollectionCard
-            key={category.title ?? ''}
-            img={category.img ?? ''}
-            altimg={category.altimg ?? category.productName ?? ''}
-            producttitle={category.productName ?? ''}
-            discountedprice={category.discountedprice ?? ''}
-            price={category.price}
-            slug={`/collections/${params.slug}/products/${category.slug}`}
-          />
-        ))}
-      </div>
-    </>
-  );
+  if (isError) {
+    return notFound();
+  }
+  if (isSuccess) {
+    const category = data?.data?.data ?? [];
+
+    // const breadcrumbData = product.summary
+    //   ? [
+    //       {
+    //         name: product?.summary ?? '',
+    //         href: `/${product?.slug ?? '/'}`,
+    //       },
+    //     ]
+    //   : [];
+
+    return (
+      <>
+        <CollectionsBanner slug={params.slug} />
+        <div className="container py-8 grid gap-8 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
+          {category?.products?.length > 0
+            ? category.products.map((product: ProductProps) => (
+                <CollectionCard
+                  key={product._id ?? ''}
+                  img={product?.imageCover ?? ''}
+                  altimg={product.name ?? ''}
+                  producttitle={product?.name ?? ''}
+                  // discountedprice={product?.price ?? ''}
+                  // price={category.price}
+                  slug={`/collections/${params.slug}/products/${
+                    product?.slug ?? '#'
+                  }`}
+                />
+              ))
+            : null}
+        </div>
+      </>
+    );
+  }
 }
