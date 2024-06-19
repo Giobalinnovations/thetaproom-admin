@@ -74,25 +74,10 @@ export function NavigationMenu1() {
                     <div className="mb-2 mt-4 text-lg font-medium">
                       Coast To Coast Furnishing
                     </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Dolore, rem?
-                    </p>
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/" title="Category">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-                soluta!
-              </ListItem>
-              <ListItem href="/" title="Category">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-                soluta!
-              </ListItem>
-              <ListItem href="/" title="Category">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-                soluta!
-              </ListItem>
+              <NavigationListCategory />
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
