@@ -31,17 +31,20 @@ import CategoryList from '../../components/category-list';
 
 const formSchema = z.object({
   category: z.string().min(1, { message: `category can't be empty` }),
-  name: z.string().toLowerCase().min(2, {
-    message: 'Destinations Name must be at least 2 characters.',
+  title: z.string().toLowerCase().min(2, {
+    message: 'Title  must be at least 2 characters.',
   }),
 
-  description: z
-    .string()
-    .min(10, {
-      message: 'Description must be at least 10 characters.',
-    })
-    .optional()
-    .or(z.literal('')),
+  description: z.string().min(6, {
+    message: 'Description must be at least 6 characters.',
+  }),
+
+  excerpt: z.string().min(6, {
+    message: 'Excerpt must be at least 6 characters.',
+  }),
+  content: z.string().min(6, {
+    message: 'content must be at least 6 characters.',
+  }),
 
   slug: z
     .string()
@@ -52,7 +55,22 @@ const formSchema = z.object({
   imageCover: z
     .array(z.any())
     .nonempty({ message: 'Images cover is required' }),
-  images: z.array(z.any()).nonempty({ message: 'Images required' }),
+  imageCoverAlt: z.string().min(3, {
+    message: 'image cover alt must be at least 3 characters.',
+  }),
+  imageCoverCaption: z.string().min(3, {
+    message: 'image cover alt must be at least 3 characters.',
+  }),
+  imageCoverDescription: z.string().min(3, {
+    message: 'image cover alt must be at least 3 characters.',
+  }),
+  focusKeyword: z
+    .string()
+    .min(3, {
+      message: 'focus keyword must be at least 3 characters.',
+    })
+    .optional()
+    .or(z.literal('')),
 });
 
 export default function AddBlogsForm() {
@@ -69,11 +87,16 @@ export default function AddBlogsForm() {
     mode: 'onBlur',
     defaultValues: {
       category: '',
-      name: '',
+      title: '',
       description: '',
+      excerpt: '',
+      content: '',
+      focusKeyword: '',
+      imageCoverAlt: '',
+      imageCoverCaption: '',
+      imageCoverDescription: '',
       slug: '',
       imageCover: [],
-      images: [],
     },
   });
 
@@ -134,13 +157,33 @@ export default function AddBlogsForm() {
           />
           <FormField
             control={form.control}
-            name="name"
+            name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Name</FormLabel>
+                <FormLabel>Meta Title</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="product name..."
+                    placeholder="meta title..."
+                    {...field}
+                    onChange={event =>
+                      field.onChange(event.target.value.toLowerCase())
+                    }
+                  />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Meta Description</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="meta description..."
                     {...field}
                     onChange={event =>
                       field.onChange(event.target.value.toLowerCase())
@@ -155,10 +198,31 @@ export default function AddBlogsForm() {
 
           <FormField
             control={form.control}
-            name="description"
+            name="excerpt"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Description</FormLabel>
+                <FormLabel>Meta Excerpt</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="excerpt..."
+                    {...field}
+                    onChange={event =>
+                      field.onChange(event.target.value.toLowerCase())
+                    }
+                  />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="content"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Content</FormLabel>
                 <FormControl>
                   <TipTap {...field} />
                 </FormControl>
@@ -193,13 +257,89 @@ export default function AddBlogsForm() {
             fieldName="imageCover"
             uploadLabel="Add your cover image"
           />
-          <FileUploadMain
-            form={form}
-            fieldName="images"
-            uploadLabel="Add Images"
-            multiple={true}
-          />
 
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+            <FormField
+              control={form.control}
+              name="imageCoverAlt"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Cover Image Alt</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="cover image alt..."
+                      {...field}
+                      onChange={event =>
+                        field.onChange(event.target.value.toLowerCase())
+                      }
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="imageCoverCaption"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Cover Image Caption</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="cover image caption..."
+                      {...field}
+                      onChange={event =>
+                        field.onChange(event.target.value.toLowerCase())
+                      }
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="imageCoverDescription"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Cover Image Caption</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="cover image description..."
+                      {...field}
+                      onChange={event =>
+                        field.onChange(event.target.value.toLowerCase())
+                      }
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <FormField
+            control={form.control}
+            name="focusKeyword"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Focus Keyword</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="focus keyword..."
+                    {...field}
+                    onChange={event =>
+                      field.onChange(event.target.value.toLowerCase())
+                    }
+                  />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           {postMutation.isError ? (
             <div className="text-red-500">
               An error occurred:{' '}
