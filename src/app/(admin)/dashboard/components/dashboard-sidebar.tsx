@@ -37,16 +37,16 @@ export default function DashboardSidebar() {
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
             >
               <Plus className="h-4 w-4" />
-              Create Product Category
+              Create Blogs Category
               <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full" />
             </Link>
 
             <Link
-              href="/dashboard/products/add"
+              href="/dashboard/blogs/add"
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
             >
               <Plus className="h-4 w-4" />
-              Add Products
+              Add Blogs
             </Link>
           </nav>
         </div>

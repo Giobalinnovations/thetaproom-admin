@@ -12,7 +12,7 @@ export async function getUserByEmailAndPassword({
 }): Promise<User | undefined> {
   try {
     const user = await fetch(
-      'https://mcnqbm2cdk.us-east-1.awsapprunner.com/api/v1/admins/login',
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/admins/login`,
       {
         method: 'POST',
         headers: {

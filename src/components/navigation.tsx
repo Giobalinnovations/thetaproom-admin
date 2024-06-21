@@ -72,7 +72,7 @@ export function NavigationMenu1() {
                     {/* <Icon.logo className="h-6 w-6" /> */}
                     <Logo className="w-30" />
                     <div className="mb-2 mt-4 text-lg font-medium">
-                      Coast To Coast Furnishing
+                      DigitalCappuccino
                     </div>
                   </a>
                 </NavigationMenuLink>

@@ -52,7 +52,7 @@ export default async function DashboardHeader() {
               className="flex items-center gap-2 text-lg font-semibold"
             >
               <Package2 className="h-6 w-6" />
-              <span className="sr-only">Coast to coast furnishing</span>
+              <span className="sr-only">DigitalCappuccino</span>
             </Link>
             <Link
               href="/dashboard"
@@ -70,11 +70,11 @@ export default async function DashboardHeader() {
               <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full" />
             </Link>
             <Link
-              href="/dashboard/products/add"
+              href="/dashboard/blogs/add"
               className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
             >
               <Plus className="h-4 w-4" />
-              Add Products
+              Add Blogs
             </Link>
           </nav>
         </SheetContent>
