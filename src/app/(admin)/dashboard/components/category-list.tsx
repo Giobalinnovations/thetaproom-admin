@@ -1,6 +1,7 @@
 import { SelectItem } from '@/components/ui/select';
 import useQueryGet from '@/hooks/useQuery';
 import apiEndpoint from '@/services/apiEndpoint';
+import Link from 'next/link';
 
 type CategoryType = {
   _id: string;
@@ -39,11 +40,12 @@ export default function CategoryList({
             </SelectItem>
           ))
         ) : (
-          <SelectItem value="">
-            <p className="text-sm text-gray-500">
-              {notAvailableMessage ?? ''} not available
-            </p>
-          </SelectItem>
+          <Link
+            href="/dashboard/category/add"
+            className="text-sm text-gray-500"
+          >
+            {notAvailableMessage ?? ''}
+          </Link>
         )}
       </>
     );

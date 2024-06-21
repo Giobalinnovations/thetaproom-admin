@@ -1,5 +1,5 @@
 const apiEndpoint = {
-  PRODUCTS: 'products',
+  BLOGS: 'blogs',
   CATEGORY: 'category',
 };
 
