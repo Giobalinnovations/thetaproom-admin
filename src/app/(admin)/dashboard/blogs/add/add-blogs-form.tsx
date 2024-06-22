@@ -201,7 +201,7 @@ export default function AddBlogsForm() {
             name="excerpt"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Meta Excerpt</FormLabel>
+                <FormLabel>Excerpt</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="excerpt..."
@@ -304,7 +304,7 @@ export default function AddBlogsForm() {
               name="imageCoverDescription"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Cover Image Caption</FormLabel>
+                  <FormLabel>Cover Image Description</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="cover image description..."
