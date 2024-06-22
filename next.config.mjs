@@ -2,7 +2,7 @@
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  trailingSlash: true,
+  // trailingSlash: true,
   images: {
     remotePatterns: [
       {
