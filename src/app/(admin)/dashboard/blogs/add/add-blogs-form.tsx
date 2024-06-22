@@ -358,7 +358,7 @@ export default function AddBlogsForm() {
                 <Loader2 className="animate-spin" /> Loading
               </>
             ) : (
-              'Add Products'
+              'Add Blogs'
             )}
           </Button>
         </form>

@@ -58,7 +58,13 @@ export default function CategoryForm() {
               <FormItem>
                 <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="product category..." {...field} />
+                  <Input
+                    placeholder="blogs category..."
+                    {...field}
+                    onChange={event =>
+                      field.onChange(event.target.value.toLowerCase())
+                    }
+                  />
                 </FormControl>
 
                 <FormMessage />
