@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@docs.plus/extension-hyperlink": "^1.5.2",
     "@hookform/resolvers": "^3.4.2",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",

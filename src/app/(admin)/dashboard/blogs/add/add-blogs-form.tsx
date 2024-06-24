@@ -28,6 +28,8 @@ import apiEndpoint from '@/services/apiEndpoint';
 import { Loader2 } from 'lucide-react';
 import TipTap from '@/components/ui/tip-tap';
 import CategoryList from '../../components/category-list';
+import { slugConverter } from '@/lib/slugConverter';
+import Tiptap from '@/components/tipTap/Tiptap';
 
 const formSchema = z.object({
   category: z.string().min(1, { message: `category can't be empty` }),
@@ -155,6 +157,7 @@ export default function AddBlogsForm() {
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="title"
@@ -221,14 +224,35 @@ export default function AddBlogsForm() {
             control={form.control}
             name="content"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Content</FormLabel>
-                <FormControl>
-                  <TipTap {...field} />
-                </FormControl>
+              // old tip tap
+              // <FormItem>
+              //   <FormLabel>Content</FormLabel>
+              //   <FormControl>
 
-                <FormMessage />
-              </FormItem>
+              //     <TipTap {...field} />
+
+              //   </FormControl>
+
+              //   <FormMessage />
+              // </FormItem>
+
+              // new tip tap
+
+              <FormField
+                control={form.control}
+                name="content"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Content</FormLabel>
+                    <FormControl>
+                      <Tiptap {...field} />
+                      {/* <Tiptap /> */}
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             )}
           />
           <FormField
@@ -242,7 +266,9 @@ export default function AddBlogsForm() {
                     placeholder="slug..."
                     {...field}
                     onChange={event =>
-                      field.onChange(event.target.value.toLowerCase())
+                      field.onChange(
+                        slugConverter(event.target.value.toLowerCase())
+                      )
                     }
                   />
                 </FormControl>
@@ -269,9 +295,9 @@ export default function AddBlogsForm() {
                     <Input
                       placeholder="cover image alt..."
                       {...field}
-                      onChange={event =>
-                        field.onChange(event.target.value.toLowerCase())
-                      }
+                      // onChange={event =>
+                      //   field.onChange(event.target.value.toLowerCase())
+                      // }
                     />
                   </FormControl>
 
@@ -309,9 +335,9 @@ export default function AddBlogsForm() {
                     <Input
                       placeholder="cover image description..."
                       {...field}
-                      onChange={event =>
-                        field.onChange(event.target.value.toLowerCase())
-                      }
+                      // onChange={event =>
+                      //   field.onChange(event.target.value.toLowerCase())
+                      // }
                     />
                   </FormControl>
 
@@ -340,6 +366,8 @@ export default function AddBlogsForm() {
               </FormItem>
             )}
           />
+
+          {/* test tipatap code end here */}
           {postMutation.isError ? (
             <div className="text-red-500">
               An error occurred:{' '}
