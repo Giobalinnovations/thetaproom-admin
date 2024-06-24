@@ -28,6 +28,7 @@ import {
   UndoIcon,
 } from 'lucide-react';
 import { Toggle } from '@/components/ui/toggle';
+import { Hyperlink } from '@docs.plus/extension-hyperlink';
 
 const MenuBar = () => {
   const { editor } = useCurrentEditor();
@@ -243,6 +244,7 @@ const extensions = [
     hardBreak: false,
   }),
   HardBreak,
+  Hyperlink,
 ];
 
 export default function TipTap({
