@@ -165,9 +165,9 @@ export default function AddBlogsForm() {
                   <Input
                     placeholder="meta title..."
                     {...field}
-                    onChange={event =>
-                      field.onChange(event.target.value.toLowerCase())
-                    }
+                    // onChange={event =>
+                    //   field.onChange(event.target.value.toLowerCase())
+                    // }
                   />
                 </FormControl>
 
@@ -185,9 +185,9 @@ export default function AddBlogsForm() {
                   <Input
                     placeholder="meta description..."
                     {...field}
-                    onChange={event =>
-                      field.onChange(event.target.value.toLowerCase())
-                    }
+                    // onChange={event =>
+                    //   field.onChange(event.target.value.toLowerCase())
+                    // }
                   />
                 </FormControl>
 
@@ -206,9 +206,9 @@ export default function AddBlogsForm() {
                   <Input
                     placeholder="excerpt..."
                     {...field}
-                    onChange={event =>
-                      field.onChange(event.target.value.toLowerCase())
-                    }
+                    // onChange={event =>
+                    //   field.onChange(event.target.value.toLowerCase())
+                    // }
                   />
                 </FormControl>
 
