@@ -22,10 +22,10 @@ export function DataTableToolbar<TData>({
     <div className="flex items-center justify-between overflow-auto">
       <div className="flex flex-1 items-center space-x-2 overflow-auto">
         <Input
-          placeholder="Filter applicants by User Id..."
-          value={(table.getColumn('_id')?.getFilterValue() as string) ?? ''}
+          placeholder="search by title..."
+          value={(table.getColumn('title')?.getFilterValue() as string) ?? ''}
           onChange={event =>
-            table.getColumn('_id')?.setFilterValue(event.target.value)
+            table.getColumn('title')?.setFilterValue(event.target.value)
           }
           className="h-8 max-w-[150px] lg:max-w-[250px]"
         />

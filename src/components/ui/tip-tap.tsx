@@ -257,7 +257,7 @@ export default function TipTap({
   // const handleChange = (htmlValue: any) => {
   //   setValue(htmlValue);
   // };
-  console.log(value);
+  // console.log(value);
   return (
     <EditorProvider
       editorProps={{

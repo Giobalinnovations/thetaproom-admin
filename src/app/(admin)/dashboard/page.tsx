@@ -26,7 +26,7 @@ export default function Dashboard() {
   }
   if (isSuccess) {
     const blogs = blogsData?.data?.data ?? [];
-    console.log(blogs[0].imageCover);
+
     return (
       <>
         {blogs.length === 0 && (

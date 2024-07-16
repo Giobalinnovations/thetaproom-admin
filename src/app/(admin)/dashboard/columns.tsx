@@ -62,7 +62,7 @@ export const columns: ColumnDef<BlogsType>[] = [
     ),
     cell: ({ row }) => (
       <div
-        className="w-[250px] line-clamp-2 text-wrap"
+        className="w-[250px] line-clamp-2 text-wrap capitalize"
         title={row.getValue('title')}
       >
         {row.getValue('title')}

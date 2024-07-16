@@ -40,7 +40,7 @@ export default function LoginForm() {
       login(values).then(data => {
         setError(data.error);
         setSuccess(data.success);
-        console.log(data);
+        // console.log(data);
       });
     });
   }

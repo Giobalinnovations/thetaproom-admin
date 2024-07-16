@@ -47,7 +47,7 @@ const Tiptap = ({
     content: value,
     onUpdate: ({ editor }) => onChange(editor.getHTML()),
   });
-  console.log(value);
+  // console.log(value);
   return (
     <div className="max-w-none  p-6 border rounded-md">
       <MenuBar editor={editor} />

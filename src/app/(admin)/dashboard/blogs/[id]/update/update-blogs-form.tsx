@@ -22,7 +22,6 @@ import {
 
 import { Input } from '@/components/ui/input';
 
-import usePost from '@/hooks/usePost';
 import apiEndpoint from '@/services/apiEndpoint';
 import { Loader2 } from 'lucide-react';
 import TipTap from '@/components/ui/tip-tap';
@@ -32,6 +31,7 @@ import Tiptap from '@/components/tipTap/Tiptap';
 import CategoryList from '../../../components/category-list';
 import FileUploadMain from '../../../components/file-upload-main';
 import { BlogsType } from '@/lib/type';
+import useUpdate from '@/hooks/useUpdatePatchVisa';
 
 const formSchema = z.object({
   category: z.string().min(1, { message: `category can't be empty` }),
@@ -84,16 +84,13 @@ export default function UpdateBlogsForm({
   id: string;
   blog: BlogsType;
 }) {
-  const postMutation = usePost({
+  const updateMutation = useUpdate({
     apiEndpointUrl: apiEndpoint.BLOGS,
-    queryKey: 'getAllBlogs',
-    routeUrl: false,
-    successMessage: 'Blog created successfully',
+    updateId: id,
+    queryKey: ['getAllBlogs', 'getBlogById'],
+    routeUrl: '/dashboard',
+    successMessage: 'Blog updated successfully',
   });
-
-  // existing blogs data code start
-  console.log(blog.imageCover);
-  // existing blog data code end
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -111,13 +108,6 @@ export default function UpdateBlogsForm({
       imageCoverCaption: blog.imageCoverCaption,
       imageCoverDescription: blog.imageCoverDescription,
       slug: blog.slug,
-      // imageCover: [
-      //   Object.assign(blog.imageCover, {
-      //     preview: URL.createObjectURL(
-      //       new Blob([blog.imageCover], { type: 'image/jpeg' })
-      //     ),
-      //   }),
-      // ],
       imageCover: [
         {
           preview: blog.imageCover,
@@ -149,7 +139,7 @@ export default function UpdateBlogsForm({
     //   console.log(pair[0], pair[1]);
     // }
 
-    postMutation.mutate(formData);
+    updateMutation.mutate(formData);
     form.control._reset();
   }
   return (
@@ -157,6 +147,7 @@ export default function UpdateBlogsForm({
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
+            // disabled={true}
             control={form.control}
             name="category"
             render={({ field }) => (
@@ -165,7 +156,8 @@ export default function UpdateBlogsForm({
                 <Select
                   onValueChange={field.onChange}
                   value={field.value}
-                  defaultValue=""
+                  defaultValue={blog.category}
+                  disabled={true}
                 >
                   <FormControl>
                     <SelectTrigger>
@@ -173,7 +165,10 @@ export default function UpdateBlogsForm({
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <CategoryList notAvailableMessage="no category found please click here to create your first blog category" />
+                    {/* <CategoryList notAvailableMessage="no category found please click here to create your first blog category" /> */}
+                    <SelectItem value={blog.category} className="capitalize">
+                      {blog.category}
+                    </SelectItem>
                   </SelectContent>
                 </Select>
 
@@ -287,6 +282,7 @@ export default function UpdateBlogsForm({
                 <FormLabel>Slug</FormLabel>
                 <FormControl>
                   <Input
+                    disabled
                     placeholder="slug..."
                     {...field}
                     onChange={event =>
@@ -392,20 +388,20 @@ export default function UpdateBlogsForm({
           />
 
           {/* test tipatap code end here */}
-          {postMutation.isError ? (
+          {updateMutation.isError ? (
             <div className="text-red-500">
               An error occurred:{' '}
-              {postMutation?.error['response']?.data?.error ??
+              {updateMutation?.error['response']?.data?.error ??
                 'something goes wrong'}
             </div>
           ) : null}
           <Button
             type="submit"
-            disabled={postMutation.isPending}
-            className={`${postMutation.isPending ? 'opacity-50' : ''}`}
+            disabled={updateMutation.isPending}
+            className={`${updateMutation.isPending ? 'opacity-50' : ''}`}
           >
             {' '}
-            {postMutation.isPending ? (
+            {updateMutation.isPending ? (
               <>
                 <Loader2 className="animate-spin" /> Loading
               </>
