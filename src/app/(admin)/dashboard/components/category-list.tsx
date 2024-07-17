@@ -26,7 +26,7 @@ export default function CategoryList({
   }
   if (isSuccess) {
     const category = data?.data?.data ?? [];
-    console.log(category);
+
     return (
       <>
         {category?.length > 0 ? (
