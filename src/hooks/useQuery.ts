@@ -15,7 +15,7 @@ export default function useQueryGet({
     queryFn: () => axiosInstance.get(apiEndpointUrl),
     refetchOnWindowFocus: true,
     refetchOnMount: true,
-    refetchOnReconnect: true,
+
     // refetchInterval: 60000, // Refetch every 60 seconds
   });
 
