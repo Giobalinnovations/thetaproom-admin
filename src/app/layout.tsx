@@ -3,7 +3,7 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import ReactQueryProvider from '@/components/ReactQueryProvider';
-
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '900'],
@@ -28,6 +28,7 @@ export default function RootLayout({
         <ReactQueryProvider>
           {children}
           <Toaster />
+          <ReactQueryDevtools initialIsOpen={false} />
         </ReactQueryProvider>
       </body>
     </html>

@@ -52,9 +52,9 @@ export function DataTableRowActions<TData>({
   return (
     <div className="flex">
       {eyeOpen && (
-        <Link href={`${href}/${blogs._id}/update`}>
+        <a href={`${href}/${blogs._id}/update`}>
           <Eye />
-        </Link>
+        </a>
       )}
       {/* {!eyeOpen && (
         <DropdownMenu>
