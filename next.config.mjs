@@ -7,7 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'storagedc.s3.ap-south-1.amazonaws.com',
+        hostname: 'storageadcrestmedia.s3.amazonaws.com',
       },
     ],
   },
