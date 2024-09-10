@@ -1,6 +1,6 @@
 import AddBlogsForm from './add-blogs-form';
 
-export default function AddTours() {
+export default function AddBlogs() {
   return (
     <div>
       <AddBlogsForm />

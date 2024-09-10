@@ -1,7 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useForm, useFieldArray } from 'react-hook-form';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import {
@@ -25,7 +25,7 @@ import OptionalText from '../../components/optional-text';
 import FileUploadMain from '../../components/file-upload-main';
 import usePost from '@/hooks/usePost';
 import apiEndpoint from '@/services/apiEndpoint';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Trash2 } from 'lucide-react';
 import TipTap from '@/components/ui/tip-tap';
 import CategoryList from '../../components/category-list';
 import { slugConverter } from '@/lib/slugConverter';
@@ -73,6 +73,12 @@ const formSchema = z.object({
     })
     .optional()
     .or(z.literal('')),
+  faqs: z.array(
+    z.object({
+      question: z.string().min(1, { message: 'Question is required' }),
+      answer: z.string().min(1, { message: 'Answer is required' }),
+    })
+  ),
 });
 
 export default function AddBlogsForm() {
@@ -99,7 +105,13 @@ export default function AddBlogsForm() {
       imageCoverDescription: '',
       slug: '',
       imageCover: [],
+      faqs: [],
     },
+  });
+
+  const { fields, append, remove } = useFieldArray({
+    control: form.control,
+    name: 'faqs',
   });
 
   // 2. Define a submit handler.
@@ -367,7 +379,57 @@ export default function AddBlogsForm() {
             )}
           />
 
-          {/* test tipatap code end here */}
+          <div>
+            <h3 className="text-lg font-semibold mb-2">FAQs</h3>
+            {fields.map((field, index) => (
+              <div key={field.id} className="space-y-4 mb-4 p-4 border rounded">
+                <FormField
+                  control={form.control}
+                  name={`faqs.${index}.question`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Question</FormLabel>
+                      <FormControl>
+                        <Input {...field} placeholder="Enter FAQ question" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name={`faqs.${index}.answer`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Answer</FormLabel>
+                      <FormControl>
+                        <Input {...field} placeholder="Enter FAQ answer" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button
+                  type="button"
+                  variant="destructive"
+                  size="sm"
+                  onClick={() => remove(index)}
+                >
+                  <Trash2 className="w-4 h-4 mr-2" />
+                  Remove FAQ
+                </Button>
+              </div>
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => append({ question: '', answer: '' })}
+            >
+              Add FAQ
+            </Button>
+          </div>
+
           {postMutation.isError ? (
             <div className="text-red-500">
               An error occurred:{' '}
