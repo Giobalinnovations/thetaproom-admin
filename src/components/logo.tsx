@@ -7,11 +7,10 @@ export default function Logo({ className }: { className?: string }) {
   return (
     <Link href="/" className={cn('relative overflow-hidden w-40', className)}>
       <Image
-        alt="coast to coast logo"
+        alt="adcrest media logo"
         src={logo}
         className={cn('object-cover w-36', className)}
         priority
-        // fill
       />
     </Link>
   );

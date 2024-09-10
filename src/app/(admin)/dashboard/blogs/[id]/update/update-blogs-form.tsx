@@ -1,7 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useFieldArray, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import {
@@ -23,7 +23,7 @@ import {
 import { Input } from '@/components/ui/input';
 
 import apiEndpoint from '@/services/apiEndpoint';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Trash2 } from 'lucide-react';
 import TipTap from '@/components/ui/tip-tap';
 
 import { slugConverter } from '@/lib/slugConverter';
@@ -75,6 +75,12 @@ const formSchema = z.object({
     })
     .optional()
     .or(z.literal('')),
+  faqs: z.array(
+    z.object({
+      question: z.string().min(1, { message: `question can't be empty` }),
+      answer: z.string().min(1, { message: `answer can't be empty` }),
+    })
+  ),
 });
 
 export default function UpdateBlogsForm({
@@ -113,7 +119,13 @@ export default function UpdateBlogsForm({
           preview: blog.imageCover,
         },
       ],
+      faqs: blog.faqs,
     },
+  });
+
+  const { fields, append, remove } = useFieldArray({
+    control: form.control,
+    name: 'faqs',
   });
 
   // 2. Define a submit handler.
@@ -386,6 +398,57 @@ export default function UpdateBlogsForm({
               </FormItem>
             )}
           />
+
+          <div>
+            <h3 className="text-lg font-semibold mb-2">FAQs</h3>
+            {fields.map((field, index) => (
+              <div key={field.id} className="space-y-4 mb-4 p-4 border rounded">
+                <FormField
+                  control={form.control}
+                  name={`faqs.${index}.question`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Question</FormLabel>
+                      <FormControl>
+                        <Input {...field} placeholder="Enter FAQ question" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name={`faqs.${index}.answer`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Answer</FormLabel>
+                      <FormControl>
+                        <Input {...field} placeholder="Enter FAQ answer" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button
+                  type="button"
+                  variant="destructive"
+                  size="sm"
+                  onClick={() => remove(index)}
+                >
+                  <Trash2 className="w-4 h-4 mr-2" />
+                  Remove FAQ
+                </Button>
+              </div>
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => append({ question: '', answer: '' })}
+            >
+              Add FAQ
+            </Button>
+          </div>
 
           {/* test tipatap code end here */}
           {updateMutation.isError ? (

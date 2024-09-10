@@ -11,4 +11,8 @@ export type BlogsType = {
   imageCoverDescription: string;
   slug: string;
   imageCover: string;
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
 };
