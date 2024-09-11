@@ -24,14 +24,14 @@ import { Input } from '@/components/ui/input';
 
 import apiEndpoint from '@/services/apiEndpoint';
 import { Loader2, Trash2 } from 'lucide-react';
-import TipTap from '@/components/ui/tip-tap';
 
 import { slugConverter } from '@/lib/slugConverter';
 import Tiptap from '@/components/tipTap/Tiptap';
-import CategoryList from '../../../components/category-list';
+
 import FileUploadMain from '../../../components/file-upload-main';
 import { BlogsType } from '@/lib/type';
 import useUpdate from '@/hooks/useUpdatePatchVisa';
+import OptionalText from '../../../components/optional-text';
 
 const formSchema = z.object({
   category: z.string().min(1, { message: `category can't be empty` }),
@@ -41,6 +41,12 @@ const formSchema = z.object({
 
   description: z.string().min(6, {
     message: 'Description must be at least 6 characters.',
+  }),
+
+  keywords: z.string().optional(),
+
+  heading: z.string().min(6, {
+    message: 'Heading must be at least 6 characters.',
   }),
 
   excerpt: z.string().min(6, {
@@ -120,6 +126,8 @@ export default function UpdateBlogsForm({
         },
       ],
       faqs: blog.faqs,
+      heading: blog.heading,
+      keywords: blog.keywords,
     },
   });
 
@@ -223,6 +231,38 @@ export default function UpdateBlogsForm({
                     //   field.onChange(event.target.value.toLowerCase())
                     // }
                   />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="heading"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Heading (H1)</FormLabel>
+                <FormControl>
+                  <Input placeholder="heading..." {...field} />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="keywords"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  Keywords (comma separated) <OptionalText />
+                </FormLabel>
+                <FormControl>
+                  <Input placeholder="keywords..." {...field} />
                 </FormControl>
 
                 <FormMessage />

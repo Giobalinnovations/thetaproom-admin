@@ -15,4 +15,6 @@ export type BlogsType = {
     question: string;
     answer: string;
   }[];
+  heading: string;
+  keywords: string;
 };
