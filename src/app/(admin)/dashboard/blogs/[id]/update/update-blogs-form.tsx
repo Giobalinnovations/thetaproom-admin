@@ -127,7 +127,7 @@ export default function UpdateBlogsForm({
       ],
       faqs: blog.faqs,
       heading: blog.heading,
-      keywords: blog.keywords,
+      keywords: blog?.keywords || '',
     },
   });
 

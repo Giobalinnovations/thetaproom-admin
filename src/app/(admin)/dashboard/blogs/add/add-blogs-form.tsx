@@ -275,20 +275,6 @@ export default function AddBlogsForm() {
             control={form.control}
             name="content"
             render={({ field }) => (
-              // old tip tap
-              // <FormItem>
-              //   <FormLabel>Content</FormLabel>
-              //   <FormControl>
-
-              //     <TipTap {...field} />
-
-              //   </FormControl>
-
-              //   <FormMessage />
-              // </FormItem>
-
-              // new tip tap
-
               <FormField
                 control={form.control}
                 name="content"
