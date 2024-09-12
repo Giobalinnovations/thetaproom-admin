@@ -32,6 +32,12 @@ const Tiptap = ({
           previewHyperlink: previewHyperlinkModal,
           setHyperlink: setHyperlinkModal,
         },
+        HTMLAttributes: {
+          // Allow search engines to follow links
+          rel: 'noopener',
+          // Open links in a new tab
+          // target: '_blank',
+        },
       }),
       StarterKit.configure({
         bulletList: {
@@ -46,14 +52,27 @@ const Tiptap = ({
     ],
     content: value,
     onUpdate: ({ editor }) => onChange(editor.getHTML()),
+    editorProps: {
+      attributes: {
+        class:
+          'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none',
+      },
+    },
   });
-  // console.log(value);
+
   return (
-    <div className="max-w-none  p-6 border rounded-md">
+    <div className="max-w-none p-6 border rounded-md">
       <MenuBar editor={editor} />
       <div className="mt-4">
         <EditorContent editor={editor} />
       </div>
+      <style jsx global>{`
+        .ProseMirror a {
+          color: #0000ff;
+          text-decoration: underline;
+          background-color: #ffff00;
+        }
+      `}</style>
     </div>
   );
 };
