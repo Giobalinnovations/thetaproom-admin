@@ -33,8 +33,8 @@ const Tiptap = ({
           setHyperlink: setHyperlinkModal,
         },
         HTMLAttributes: {
-          // Allow search engines to follow links
-          rel: 'noopener',
+          // Allow search engines to follow links and add "dofollow"
+          rel: '',
           // Open links in a new tab
           // target: '_blank',
         },
